@@ -55,6 +55,15 @@ class Vehicle
     @current_speed = 0
     puts "You turned off the engine"
   end
+
+  def age
+    puts "Your #{model} is #{current_year - year} years old"
+  end
+
+  private
+  def current_year
+    Time.now.year
+  end
 end
 
 
@@ -77,27 +86,28 @@ class MyTruck < Vehicle
 end
 
 civic = MyCar.new('Honda civic', 2020, 'blue')
-civic.speed_up(20)
-civic.current_speed
-civic.speed_up(20)
-civic.current_speed
-civic.brake(20)
-civic.current_speed
-civic.brake(20)
-civic.current_speed
-civic.shut_down
+# civic.speed_up(20)
+# civic.current_speed
+# civic.speed_up(20)
+# civic.current_speed
+# civic.brake(20)
+# civic.current_speed
+# civic.brake(20)
+# civic.current_speed
+# civic.shut_down
+civic.age
 
 
 ford = MyTruck.new('Ford SUV', 2009, 'black')
-
-ford.speed_up(20)
-ford.current_speed
-ford.speed_up(20)
-ford.current_speed
-ford.brake(20)
-ford.current_speed
-ford.brake(20)
-ford.current_speed
-ford.shut_down
+ford.age
+# ford.speed_up(20)
+# ford.current_speed
+# ford.speed_up(20)
+# ford.current_speed
+# ford.brake(20)
+# ford.current_speed
+# ford.brake(20)
+# ford.current_speed
+# ford.shut_down
 
 
