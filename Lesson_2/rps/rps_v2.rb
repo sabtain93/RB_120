@@ -1,3 +1,5 @@
+# All bonus features added
+
 class Rock
   attr_reader :name
   def initialize
