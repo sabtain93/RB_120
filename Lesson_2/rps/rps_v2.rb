@@ -1,7 +1,7 @@
 # All bonus features added
-
 class Rock
   attr_reader :name
+
   def initialize
     @name = 'rock'
   end
@@ -9,6 +9,7 @@ end
 
 class Paper
   attr_reader :name
+
   def initialize
     @name = 'paper'
   end
@@ -16,6 +17,7 @@ end
 
 class Scissor
   attr_reader :name
+
   def initialize
     @name = 'scissor'
   end
@@ -23,6 +25,7 @@ end
 
 class Lizard
   attr_reader :name
+
   def initialize
     @name = 'lizard'
   end
@@ -30,14 +33,15 @@ end
 
 class Spock
   attr_reader :name
+
   def initialize
     @name = 'spock'
   end
 end
 
 class Move
-  # VALUES = [Rock.new, Paper.new, Scissor.new, Spock.new, Lizard.new]
   attr_reader :value
+
   def initialize(value)
     @value = value
   end
@@ -74,6 +78,7 @@ end
 
 class Player
   attr_accessor :move, :name, :score
+
   def initialize
     set_name
     @score = 0
@@ -130,7 +135,7 @@ end
 
 class Computer < Player
   attr_accessor :comp_moves
-  # @@comp_choice = []
+
   def initialize
     super()
     @comp_moves = []
@@ -141,6 +146,7 @@ class Computer < Player
   end
 
   def choose
+    choice = nil
     case name
     when "R2D2"
      self.move = Move.new([Rock.new, Spock.new, Lizard.new].sample)
@@ -157,6 +163,7 @@ end
 
 class RPSGame
   attr_accessor :human, :computer
+
   def initialize
     @human = Human.new
     @computer = Computer.new
@@ -174,6 +181,7 @@ class RPSGame
     puts "Thank you! for playing Rock, Paper, Scissors, Spock, Lizard. Good Bye!"
   end
 
+ # rubocop: disable Metrics/MethodLength
   def display_score
     system "clear"
     puts " "
@@ -242,11 +250,8 @@ class RPSGame
       if human.score == 3 || computer.score == 3
         sleep(3)
         system "clear"
-        if play_again?
-          reset
-        else
-          break
-        end
+        break unless play_again?
+        reset
       end
     end
     system "clear"
@@ -256,4 +261,3 @@ end
 
 
 RPSGame.new.play
-
